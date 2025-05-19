@@ -6,17 +6,23 @@ async function scrapeFolios(page) {
     const data = [];
 
     for (const row of rows) {
-      const folio = row.cells[0]?.textContent.trim();        // NÚM
-      const boleto = row.cells[1]?.textContent.trim();       // BOLETO
-      const tipo = row.cells[6]?.textContent.trim();     // tipo
-      const terminal = row.cells[7]?.textContent.trim() // terminal
+      const cells = row.querySelectorAll('td');
+      const folioCell = cells[0];
+      const span = folioCell?.querySelector('span');
+      const color = span?.style?.color?.toLowerCase() || '';
+
+      const folio = folioCell?.innerText.trim();
+      const boleto = cells[1]?.textContent.trim();
+      const tipo = cells[6]?.textContent.trim();
+      const terminal = cells[7]?.textContent.trim();
 
       if (folio && boleto) {
         data.push({
           folio,
           ultimos3: boleto.slice(-3),
-          tipo, 
-          terminal
+          tipo,
+          terminal,
+          color
         });
       }
     }

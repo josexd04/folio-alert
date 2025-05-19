@@ -1,6 +1,7 @@
 const puppeteer = require('puppeteer');
 const scrapeFolios = require('./scraper');
-const {showNotification} = require('./notifier');
+const { showNotification } = require('./notifier');
+const { checkCanceledTickets } = require('./cancelWatcher');
 const { URL, CHECK_INTERVAL, CHROME_PATH, USER_DATA_DIR } = require('./config');
 
 let lastFolios = [];
@@ -10,7 +11,9 @@ async function checkForUpdates(page) {
   const currentFolios = foliosData.map(f => f.folio);
 
   if (lastFolios.length) {
-    const nuevos = foliosData.filter(f => !lastFolios.includes(f.folio));
+    const nuevos = foliosData.filter(f =>
+      !lastFolios.includes(f.folio) && f.color !== 'yellow'
+    );
 
     if (nuevos.length) {
       nuevos.forEach(f => {
@@ -56,8 +59,9 @@ async function monitorPage() {
 
   setInterval(async () => {
     try {
-      if (page.isClosed()) throw new Error("Página cerrada.");
+      if (page.isClosed()) throw new Error('Página cerrada.');
       await checkForUpdates(page);
+      await checkCanceledTickets(page);
     } catch (err) {
       console.error('Error en monitoreo:', err.message);
     }
@@ -65,4 +69,3 @@ async function monitorPage() {
 }
 
 monitorPage().catch(err => console.error('Error fatal:', err));
-

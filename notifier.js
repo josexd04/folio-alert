@@ -2,11 +2,20 @@ const notifier = require('node-notifier');
 
 function showNotification(message) {
   notifier.notify({
-    title: 'Nuevo folio reflejado',
+    title: 'Nuevo folio reflejado 🚕',
     message,
-    sound: "Notification.Reminder",
+    sound: 'Notification.Reminder',
     wait: false
   });
 }
 
-module.exports = { showNotification };
+function showCancelFolio(message) {
+  notifier.notify({
+    title: '❌ Se ha cancelado un folio ❌',
+    message,
+    sound: 'Notification.SMS',
+    wait: false
+  });
+}
+
+module.exports = { showNotification, showCancelFolio };
