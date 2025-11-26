@@ -1,7 +1,32 @@
 {
+<<<<<<< HEAD
   "dependencies": {
     "node-notifier": "^10.0.1",
     "play-sound": "^1.1.6",
     "puppeteer": "^24.8.0"
+=======
+  "name": "folio-alert",
+  "version": "1.0.0",
+  "main": "index.js",
+  "bin": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "build": "pkg ."
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "node-notifier": "^10.0.1",
+    "play-sound": "^1.1.6",
+    "puppeteer": "^24.8.0"
+  },
+  "devDependencies": {
+    "pkg": "^5.8.1"
+  },
+  "pkg": {
+    "targets": [
+      "node18-win-x64"
+    ],
+    "outputPath": "dist"
+>>>>>>> 62f1437 (Inicializa repo: modularización, elimina auto-refresh y corrige duplicados)
   }
 }

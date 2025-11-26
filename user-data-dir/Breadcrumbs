@@ -1,0 +1,41 @@
+0:00:00 PasswordManager_Autofilled
+0:00:01 PasswordManager_Autofilled
+0:00:01 Tab2 StartNav4 #renderer-user #form_submit
+0:00:02 Tab2 RemoveInfobar73
+0:00:02 Tab2 AddInfobar73
+0:00:02 Tab2 FinishNav4
+0:00:02 PasswordManager_LoginPassed
+0:00:02 Tab2 PageLoad
+0:00:05 Widget Closed: RoundedOmniboxResultsFrameWindow
+0:00:05 NewTab_Button
+0:00:05 NewTab
+0:00:05 Tab3 StartNav5 #ntp #typed
+0:00:05 Browser1 Insert active Tab3 at 2
+0:00:05 Tab3 AddInfobar73
+0:00:05 Tab3 FinishNav5
+0:00:05 Tab3 StartNav6 #renderer-script #auto_subframe
+0:00:05 Tab3 FinishNav6
+0:00:05 Tab3 PageLoad
+0:00:05 Tab3 PageLoad #ntp
+0:00:05 Tab3 StartNav7 #renderer-script #auto_subframe
+0:00:05 Tab3 FinishNav7
+0:00:05 OmniboxInputInProgress
+0:00:05 Tab3 PageLoad
+0:00:06 LoadURL
+0:00:06 Tab3 StartNav8 #typed
+0:00:06 Widget Closed: RoundedOmniboxResultsFrameWindow
+0:00:06 Tab3 RemoveInfobar73
+0:00:06 Tab3 AddInfobar73
+0:00:06 Tab3 FinishNav8
+0:00:06 Tab3 PageLoad
+0:00:08 TextSelectionChanged
+0:00:09 Widget Closed: MenuHost
+0:00:09 DevTools_InspectElement
+0:00:09 DevTools_InspectRenderer
+0:00:09 DevTools_PanelShown_elements
+0:00:11 DevTools_PanelShown_console
+0:00:11 TextSelectionChanged
+0:00:11 TextSelectionChanged
+0:00:12 TextSelectionChanged
+0:00:12 TextSelectionChanged
+0:00:19 Tab1 RemoveInfobar73
