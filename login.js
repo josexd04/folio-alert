@@ -7,7 +7,7 @@ async function loginIfNeeded(page) {
       return !!form;
     });
 
-    if (!isLogin || !LOGIN?.enabled) return;
+    if (!isLogin || !LOGIN?.enabled || !LOGIN?.username || !LOGIN?.password) return;
 
     // Leer valores actuales (autocompletados) del formulario
     const existing = await page.evaluate(() => {
