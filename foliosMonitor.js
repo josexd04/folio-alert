@@ -15,13 +15,15 @@ async function checkForUpdatesAcrossPages(browser) {
   const currentFoliosSet = new Set();
 
   for (const page of matchingPages) {
-    const foliosData = await scrapeFolios(page);
-    for (const f of foliosData) {
-      currentFoliosSet.add(f.folio);
-      if (!folioInfoByFolio.has(f.folio)) {
-        folioInfoByFolio.set(f.folio, f);
+    try {
+      const foliosData = await scrapeFolios(page);
+      for (const f of foliosData) {
+        currentFoliosSet.add(f.folio);
+        if (!folioInfoByFolio.has(f.folio)) {
+          folioInfoByFolio.set(f.folio, f);
+        }
       }
-    }
+    } catch (_) {}
   }
 
   if (lastFoliosAll.size > 0) {

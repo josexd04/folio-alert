@@ -1,6 +1,7 @@
 const { SELECTOR } = require('./config');
 
 async function scrapeFolios(page) {
+  await page.waitForSelector(SELECTOR, { timeout: 15000 }).catch(() => {});
   return await page.evaluate((selector) => {
     const rows = Array.from(document.querySelectorAll(selector));
     const data = [];

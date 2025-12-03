@@ -20,6 +20,15 @@ async function monitorPage() {
     process.exit();
   });
 
+  process.on('SIGINT', async () => {
+    try { await browser.close(); } catch (_) {}
+    process.exit(0);
+  });
+  process.on('SIGTERM', async () => {
+    try { await browser.close(); } catch (_) {}
+    process.exit(0);
+  });
+
   try {
     await page.goto(URL, { waitUntil: 'networkidle2' });
     await loginIfNeeded(page);
@@ -31,13 +40,18 @@ async function monitorPage() {
 
   console.log('Monitoreando cambios...');
 
+  let running = false;
   setInterval(async () => {
+    if (running) return;
+    running = true;
     try {
       if (page.isClosed()) throw new Error('Página cerrada.');
       await checkForUpdatesAcrossPages(browser);
       await checkCanceledTickets(page);
     } catch (err) {
       console.error('Error en monitoreo:', err.message);
+    } finally {
+      running = false;
     }
   }, CHECK_INTERVAL);
 }

@@ -1,4 +1,4 @@
-const { LOGIN } = require('./config');
+const { LOGIN, SELECTOR } = require('./config');
 
 async function loginIfNeeded(page) {
   try {
@@ -45,6 +45,7 @@ async function loginIfNeeded(page) {
       page.waitForNavigation({ waitUntil: 'networkidle2', timeout: 30000 })
     ]);
 
+    await page.waitForSelector(SELECTOR, { timeout: 15000 }).catch(() => {});
     console.log('Login automático completado.');
   } catch (err) {
     console.error('Error en login automático:', err.message);
