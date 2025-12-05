@@ -1,3 +1,6 @@
+// Scrapes the folio table and returns normalized records.
+// Columns mapping:
+// 0: folio (span color), 1: boleto, 5: zona, 6: tipo, 7: terminal, 8: estado
 const { SELECTOR } = require('./config');
 
 async function scrapeFolios(page) {
@@ -16,6 +19,8 @@ async function scrapeFolios(page) {
       const boleto = cells[1]?.textContent.trim();
       const tipo = cells[6]?.textContent.trim();
       const terminal = cells[7]?.textContent.trim();
+      const zona = cells[5]?.textContent.trim();
+      const estado = (cells[8]?.textContent || '').trim().toUpperCase();
 
       if (folio && boleto) {
         data.push({
@@ -23,6 +28,8 @@ async function scrapeFolios(page) {
           ultimos3: boleto.slice(-3),
           tipo,
           terminal,
+          zona,
+          estado,
           color
         });
       }

@@ -18,4 +18,22 @@ function showCancelFolio(message) {
   });
 }
 
-module.exports = { showNotification, showCancelFolio };
+function showCambio(message) {
+  notifier.notify({
+    title: '⚠️Folio  de cambio',
+    message,
+    sound: 'Notification.Default',
+    wait: false
+  });
+}
+
+function showVentaEspecial(message) {
+  notifier.notify({
+    title: '🎫 VENTA ESPECIAL',
+    message,
+    sound: 'Notification.Default',
+    wait: false
+  });
+}
+
+module.exports = { showNotification, showCancelFolio, showCambio, showVentaEspecial };

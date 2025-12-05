@@ -4,12 +4,14 @@ const { loginIfNeeded } = require('./login');
 const { checkForUpdatesAcrossPages } = require('./foliosMonitor');
 const { checkCanceledTickets } = require('./cancelWatcher');
 
+// Entry point: launches browser, performs login and starts the monitoring loop.
 async function monitorPage() {
   console.log('Iniciando monitoreo de folios...');
 
   const browser = await launchBrowser();
   const page = await browser.newPage();
 
+  // Lifecycle hooks: exit the process when the tab or browser closes
   page.on('close', () => {
     console.log('Pestaña cerrada, saliendo.');
     process.exit();
@@ -20,6 +22,7 @@ async function monitorPage() {
     process.exit();
   });
 
+  // Graceful shutdown on OS signals
   process.on('SIGINT', async () => {
     try { await browser.close(); } catch (_) {}
     process.exit(0);

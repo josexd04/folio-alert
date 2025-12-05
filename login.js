@@ -1,5 +1,6 @@
 const { LOGIN, SELECTOR } = require('./config');
 
+// Performs optional login if the login form is present and env credentials are set.
 async function loginIfNeeded(page) {
   try {
     const isLogin = await page.evaluate(() => {

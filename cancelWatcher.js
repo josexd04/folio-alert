@@ -1,4 +1,6 @@
+// Watches table state transitions and notifies only when a sold folio becomes canceled.
 const { showCancelFolio } = require('./notifier');
+const messages = require('./utils/messages');
 const { SELECTOR } = require('./config');
 
 let prevStates = new Map();
@@ -18,9 +20,10 @@ async function checkCanceledTickets(page) {
 
   for (const { boleto, estado } of folios) {
     const prev = prevStates.get(boleto);
-    if (prev !== undefined && prev === 'VEND' && estado === 'CANCE') {
+    const transitionedToCancel = prev !== undefined && prev === 'VEND' && estado === 'CANCE';
+    if (transitionedToCancel) {
       const ultimos3 = boleto.slice(-3);
-      showCancelFolio(`Se ha cancelado el folio terminación ${ultimos3}`);
+      showCancelFolio(messages.cancel(ultimos3));
     }
     prevStates.set(boleto, estado);
   }
