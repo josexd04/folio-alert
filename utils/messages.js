@@ -1,6 +1,6 @@
 function normal(info) {
   const zona = info.zona || '';
-  return `Num: ${info.folio} | Terminación: ${info.ultimos3} | Tipo: ${info.tipo}, Terminal: ${info.terminal}${zona ? `, Zona: ${zona}` : ''}`;
+  return `Terminación: ${info.ultimos3} | Tipo: ${info.tipo}, Terminal: ${info.terminal}${zona ? `, Zona: ${zona}` : ''}`;
 }
 
 function cambio(info) {

@@ -4,6 +4,7 @@ const scrapeFolios = require('./scraper');
 const { showNotification, showCambio, showVentaEspecial } = require('./notifier');
 const messages = require('./utils/messages');
 const { URL } = require('./config');
+const logger = require('./utils/logger');
 
 // Seen folios across checks (to detect new ones)
 let lastFoliosAll = new Set();
@@ -69,7 +70,7 @@ async function checkForUpdatesAcrossPages(browser) {
 
     newFolios.forEach(info => {
       const message = messages.normal(info);
-      console.log('New folio detected!', message);
+      logger.info('New folio detected!', message);
       showNotification(message);
     });
 

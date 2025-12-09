@@ -1,93 +1,44 @@
-0:00:48 Tab3 RemoveInfobar73
-0:00:48 Tab3 RenderProcessGone
-0:00:48 Browser1 Close Tab3 at 2
-0:12:10 Tab1 RemoveInfobar73
-0:00:00 Startup
-0:00:00 UserEducation.Session.ActivePeriodStart
-0:00:00 Tab1 StartNav1 #auto_toplevel
-0:00:00 Browser1 Insert active Tab1 at 0
-0:00:00 Tab1 AddInfobar73
-0:00:00 TouchMode.EnteredNonTouchMode
-0:00:00 Tab1 FinishNav1
-0:00:00 Tab1 PageLoad
-0:00:00 Tab2 StartNav2 #auto_toplevel
-0:00:00 Browser1 Insert active Tab2 at 1
-0:00:00 Tab2 AddInfobar73
-0:00:00 Tab2 FinishNav2
-0:00:00 Tab2 PageLoad
-0:00:00 Tab2 StartNav3 #typed
-0:00:01 Tab2 RemoveInfobar73
-0:00:01 Tab2 AddInfobar73
-0:00:01 Tab2 FinishNav3
-0:00:01 Tab2 PageLoad
-0:00:01 PasswordManager_Autofilled
-0:00:01 Tab2 StartNav4 #renderer-user #form_submit
-0:00:02 Tab2 RemoveInfobar73
-0:00:02 Tab2 AddInfobar73
-0:00:02 Tab2 FinishNav4
-0:00:02 PasswordManager_LoginPassed
-0:00:02 Tab2 PageLoad
-0:00:04 Widget Closed: ToastView
-0:00:14 Tab1 RemoveInfobar73
-0:00:00 Startup
-0:00:00 Tab1 StartNav1 #auto_toplevel
-0:00:00 Browser1 Insert active Tab1 at 0
-0:00:00 Tab1 AddInfobar73
-0:00:00 TouchMode.EnteredNonTouchMode
-0:00:00 Tab1 FinishNav1
-0:00:00 Tab1 PageLoad
-0:00:00 Tab2 StartNav2 #auto_toplevel
-0:00:00 Browser1 Insert active Tab2 at 1
-0:00:00 Tab2 AddInfobar73
-0:00:00 Tab2 FinishNav2
-0:00:00 Tab2 PageLoad
-0:00:00 Tab2 StartNav3 #typed
-0:00:01 Tab2 RemoveInfobar73
-0:00:01 Tab2 AddInfobar73
-0:00:01 Tab2 FinishNav3
-0:00:01 PasswordManager_Autofilled
-0:00:01 PasswordManager_Autofilled
-0:00:01 Tab2 PageLoad
-0:00:01 Tab2 StartNav4 #renderer-user #form_submit
-0:00:02 Tab2 RemoveInfobar73
-0:00:02 Tab2 AddInfobar73
-0:00:02 Tab2 FinishNav4
-0:00:02 PasswordManager_LoginPassed
-0:00:02 Tab2 PageLoad
-0:00:03 TextSelectionChanged
-0:00:04 Widget Closed: MenuHost
-0:00:04 DevTools_InspectElement
-0:00:04 DevTools_InspectRenderer
-0:00:05 DevTools_PanelShown_release-note
-0:00:05 DevTools_PanelShown_elements
-0:00:06 DevTools_PanelShown_console
-0:00:06 TextSelectionChanged
-0:00:10 TextSelectionChanged
-0:00:12 TextSelectionChanged
-0:00:12 TextSelectionChanged
-0:00:25 TextSelectionChanged
-0:00:26 TextSelectionChanged
-0:00:27 TextSelectionChanged
-0:00:28 TextSelectionChanged
-0:00:30 TextSelectionChanged
-0:00:30 TextSelectionChanged
-0:00:31 TextSelectionChanged
-0:00:31 TextSelectionChanged
-0:00:31 TextSelectionChanged
-0:00:32 TextSelectionChanged
-0:00:33 TextSelectionChanged
-0:00:33 TextSelectionChanged
-0:00:33 TextSelectionChanged
-0:00:34 TextSelectionChanged
-0:00:34 TextSelectionChanged
-0:00:35 TextSelectionChanged
-0:00:35 TextSelectionChanged
-0:00:35 TextSelectionChanged
-0:00:35 TextSelectionChanged
-0:00:35 TextSelectionChanged
-0:00:36 TextSelectionChanged
-0:00:37 TextSelectionChanged
-0:00:38 TextSelectionChanged
-0:00:38 TextSelectionChanged
-0:01:02 DevTools_Close
-0:01:08 Tab1 RemoveInfobar73
+0:00:50 TextSelectionChanged
+0:00:51 Widget Closed: MenuHost
+0:00:51 DevTools_InspectElement
+0:00:51 DevTools_InspectRenderer
+0:00:51 DevTools_PanelShown_elements
+0:00:53 DevTools_PanelShown_console
+0:00:53 TextSelectionChanged
+0:00:53 TextSelectionChanged
+0:00:54 TextSelectionChanged
+0:00:54 TextSelectionChanged
+0:00:57 Widget Closed: StatusBubble
+0:02:32 DevTools_Close
+0:02:44 TextSelectionChanged
+0:02:44 TextSelectionChanged
+0:02:44 TextSelectionChanged
+0:02:44 TextSelectionChanged
+0:02:44 TextSelectionChanged
+0:02:44 TextSelectionChanged
+0:02:44 TextSelectionChanged
+0:02:44 TextSelectionChanged
+0:02:45 TextSelectionChanged
+0:02:46 TextSelectionChanged
+0:02:46 TextSelectionChanged
+0:02:48 TextSelectionChanged
+0:02:49 Widget Closed: StatusBubble
+0:02:49 Browser1 Insert active Tab3 at 2
+0:02:49 Tab3 AddInfobar73
+0:02:49 Tab3 StartNav5 #renderer-user #link
+0:02:49 Tab3 FinishNav5
+0:02:49 Tab3 PageLoad
+0:02:53 CloseTab_NoAlertIndicator
+0:02:53 Tab3 RemoveInfobar73
+0:02:53 Tab3 RenderProcessGone
+0:02:53 Browser1 Close Tab3 at 2
+0:02:54 Widget Closed: StatusBubble
+0:02:54 Browser1 Insert active Tab4 at 2
+0:02:54 Tab4 AddInfobar73
+0:02:54 Tab4 StartNav6 #renderer-user #link
+0:02:54 Tab4 FinishNav6
+0:02:54 Tab4 PageLoad
+0:02:56 CloseTab_NoAlertIndicator
+0:02:56 Tab4 RemoveInfobar73
+0:02:56 Tab4 RenderProcessGone
+0:02:57 Browser1 Close Tab4 at 2

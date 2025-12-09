@@ -3,22 +3,23 @@ const { URL, CHECK_INTERVAL } = require('./config');
 const { loginIfNeeded } = require('./login');
 const { checkForUpdatesAcrossPages } = require('./foliosMonitor');
 const { checkCanceledTickets } = require('./cancelWatcher');
+const logger = require('./utils/logger');
 
 // Entry point: launches browser, performs login and starts the monitoring loop.
 async function monitorPage() {
-  console.log('Iniciando monitoreo de folios...');
+  logger.info('Starting folio monitoring...');
 
   const browser = await launchBrowser();
   const page = await browser.newPage();
 
   // Lifecycle hooks: exit the process when the tab or browser closes
   page.on('close', () => {
-    console.log('Pestaña cerrada, saliendo.');
+    logger.info('Tab closed, exiting.');
     process.exit();
   });
 
   browser.on('disconnected', () => {
-    console.log('Navegador cerrado, saliendo.');
+    logger.info('Browser disconnected, exiting.');
     process.exit();
   });
 
@@ -36,27 +37,27 @@ async function monitorPage() {
     await page.goto(URL, { waitUntil: 'networkidle2' });
     await loginIfNeeded(page);
   } catch (e) {
-    console.error('Error cargando página:', e);
+    logger.error('Error loading page:', e.message);
     await browser.close();
     return;
   }
 
-  console.log('Monitoreando cambios...');
+  logger.info('Monitoring for changes...');
 
   let running = false;
   setInterval(async () => {
     if (running) return;
     running = true;
     try {
-      if (page.isClosed()) throw new Error('Página cerrada.');
+      if (page.isClosed()) throw new Error('Page closed.');
       await checkForUpdatesAcrossPages(browser);
       await checkCanceledTickets(page);
     } catch (err) {
-      console.error('Error en monitoreo:', err.message);
+      logger.error('Monitoring error:', err.message);
     } finally {
       running = false;
     }
   }, CHECK_INTERVAL);
 }
 
-monitorPage().catch(err => console.error('Error fatal:', err));
+monitorPage().catch(err => logger.error('Fatal error:', err));
