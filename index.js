@@ -1,5 +1,5 @@
 const { launchBrowser } = require('./browser');
-const { URL, CHECK_INTERVAL } = require('./config');
+const { URL, CHECK_INTERVAL, LOGIN } = require('./config');
 const { loginIfNeeded } = require('./login');
 const { checkForUpdatesAcrossPages } = require('./foliosMonitor');
 const { checkCanceledTickets } = require('./cancelWatcher');
@@ -8,6 +8,9 @@ const logger = require('./utils/logger');
 // Entry point: launches browser, performs login and starts the monitoring loop.
 async function monitorPage() {
   logger.info('Starting folio monitoring...');
+  if (LOGIN.enabled && LOGIN.username) {
+    logger.info(`Login enabled for user: ${LOGIN.username}`);
+  }
 
   const browser = await launchBrowser();
   const page = await browser.newPage();

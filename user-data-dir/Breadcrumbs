@@ -1,44 +1,33 @@
-0:00:50 TextSelectionChanged
-0:00:51 Widget Closed: MenuHost
-0:00:51 DevTools_InspectElement
-0:00:51 DevTools_InspectRenderer
-0:00:51 DevTools_PanelShown_elements
-0:00:53 DevTools_PanelShown_console
-0:00:53 TextSelectionChanged
-0:00:53 TextSelectionChanged
-0:00:54 TextSelectionChanged
-0:00:54 TextSelectionChanged
-0:00:57 Widget Closed: StatusBubble
-0:02:32 DevTools_Close
-0:02:44 TextSelectionChanged
-0:02:44 TextSelectionChanged
-0:02:44 TextSelectionChanged
-0:02:44 TextSelectionChanged
-0:02:44 TextSelectionChanged
-0:02:44 TextSelectionChanged
-0:02:44 TextSelectionChanged
-0:02:44 TextSelectionChanged
-0:02:45 TextSelectionChanged
-0:02:46 TextSelectionChanged
-0:02:46 TextSelectionChanged
-0:02:48 TextSelectionChanged
-0:02:49 Widget Closed: StatusBubble
-0:02:49 Browser1 Insert active Tab3 at 2
-0:02:49 Tab3 AddInfobar73
-0:02:49 Tab3 StartNav5 #renderer-user #link
-0:02:49 Tab3 FinishNav5
-0:02:49 Tab3 PageLoad
-0:02:53 CloseTab_NoAlertIndicator
-0:02:53 Tab3 RemoveInfobar73
-0:02:53 Tab3 RenderProcessGone
-0:02:53 Browser1 Close Tab3 at 2
-0:02:54 Widget Closed: StatusBubble
-0:02:54 Browser1 Insert active Tab4 at 2
-0:02:54 Tab4 AddInfobar73
-0:02:54 Tab4 StartNav6 #renderer-user #link
-0:02:54 Tab4 FinishNav6
-0:02:54 Tab4 PageLoad
-0:02:56 CloseTab_NoAlertIndicator
-0:02:56 Tab4 RemoveInfobar73
-0:02:56 Tab4 RenderProcessGone
-0:02:57 Browser1 Close Tab4 at 2
+0:00:02 TextSelectionChanged
+0:00:02 TextSelectionChanged
+0:00:02 TextSelectionChanged
+0:00:02 TextSelectionChanged
+0:00:02 TextSelectionChanged
+0:00:02 TextSelectionChanged
+0:00:02 TextSelectionChanged
+0:00:02 Widget Closed: PopupViewViews
+0:00:02 TextSelectionChanged
+0:00:02 TextSelectionChanged
+0:00:02 TextSelectionChanged
+0:00:02 TextSelectionChanged
+0:00:03 TextSelectionChanged
+0:00:03 TextSelectionChanged
+0:00:03 TextSelectionChanged
+0:00:03 TextSelectionChanged
+0:00:03 TextSelectionChanged
+0:00:03 Tab2 StartNav4 #renderer-user #form_submit
+0:00:04 Tab2 RemoveInfobar73
+0:00:04 Tab2 AddInfobar73
+0:00:04 Tab2 FinishNav4
+0:00:04 PasswordManager_LoginPassed
+0:00:04 Tab2 PageLoad
+0:00:05 TextSelectionChanged
+0:00:06 Widget Closed: MenuHost
+0:00:06 DevTools_InspectElement
+0:00:06 DevTools_InspectRenderer
+0:00:06 DevTools_PanelShown_elements
+0:00:07 DevTools_PanelShown_console
+0:00:07 TextSelectionChanged
+0:00:09 TextSelectionChanged
+0:00:09 TextSelectionChanged
+0:00:17 Tab1 RemoveInfobar73

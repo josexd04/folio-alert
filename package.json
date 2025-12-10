@@ -8,9 +8,11 @@
     "build": "pkg ."
   },
   "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "debug": "^4.4.3",
     "dotenv": "^17.2.3",
     "node-notifier": "^10.0.1",
-    "puppeteer": "^24.8.0"
+    "puppeteer-core": "^24.32.1"
   },
   "devDependencies": {
     "pkg": "^5.8.1"
@@ -19,6 +21,12 @@
     "targets": [
       "node18-win-x64"
     ],
-    "outputPath": "dist"
+    "outputPath": "dist",
+    "assets": [
+      "node_modules/node-notifier/vendor/**/*"
+    ],
+    "options": [
+      "--public"
+    ]
   }
 }

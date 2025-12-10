@@ -1,5 +1,5 @@
 // Browser factory: centralizes Puppeteer launch configuration.
-const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer-core');
 const { CHROME_PATH, USER_DATA_DIR, HEADLESS } = require('./config');
 
 async function launchBrowser() {
