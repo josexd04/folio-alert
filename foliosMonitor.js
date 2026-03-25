@@ -2,6 +2,7 @@
 // Only notifies when a folio appears for the first time in the session.
 const scrapeFolios = require('./scraper');
 const { showNotification, showCambio, showVentaEspecial } = require('./notifier');
+const { enviarBoleto } = require('./google');
 const messages = require('./utils/messages');
 const { URL } = require('./config');
 const logger = require('./utils/logger');
@@ -72,6 +73,7 @@ async function checkForUpdatesAcrossPages(browser) {
       const message = messages.normal(info);
       logger.info('New folio detected!', message);
       showNotification(message);
+      enviarBoleto(info.boleto, info.zona, 'Normal', info.terminal);
     });
 
     const newSpecialFolios = Array.from(currentFoliosSet)
@@ -83,10 +85,12 @@ async function checkForUpdatesAcrossPages(browser) {
       if (isCambio(info) && !notifiedCambio.has(info.folio)) {
         showCambio(messages.cambio(info));
         notifiedCambio.add(info.folio);
+        enviarBoleto(info.boleto, info.zona, 'Cambio', info.terminal);
       }
       if (isVentaEspecial(info) && !notifiedVentaEspecial.has(info.folio)) {
         showVentaEspecial(messages.ventaEspecial(info));
         notifiedVentaEspecial.add(info.folio);
+        enviarBoleto(info.boleto, info.zona, 'Venta Especial', info.terminal);
       }
     });
   }

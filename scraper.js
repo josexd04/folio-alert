@@ -42,6 +42,7 @@ async function scrapeFolios(page) {
       if (folio && boleto) {
         data.push({
           folio,
+          boleto,
           ultimos3: boleto.slice(-3),
           tipo,
           terminal,
