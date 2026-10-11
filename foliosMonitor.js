@@ -1,7 +1,7 @@
 // Monitors all open pages, aggregates folio data and emits notifications.
 // Only notifies when a folio appears for the first time in the session.
 const scrapeFolios = require('./scraper');
-const { showNotification, showCambio, showVentaEspecial } = require('./notifier');
+const { showNotification, showCambio, showVentaEspecial, playTerminalAudio } = require('./notifier');
 const { enviarBoleto } = require('./google');
 const messages = require('./utils/messages');
 const { URL } = require('./config');
@@ -72,7 +72,10 @@ async function checkForUpdatesAcrossPages(browser) {
     newFolios.forEach(info => {
       const message = messages.normal(info);
       logger.info('New folio detected!', message);
+      logger.info(`Folio data -> folio: ${info.folio}, zona: "${info.zona}", terminal: "${info.terminal}", tipo: ${info.tipo}, color: ${info.color}, estado: ${info.estado}`);
       showNotification(message);
+      logger.info(`Playing terminal audio for "${info.terminal}"`);
+      playTerminalAudio(info.terminal);
       enviarBoleto(info.boleto, info.zona, 'Normal', info.terminal);
     });
 
@@ -82,13 +85,18 @@ async function checkForUpdatesAcrossPages(browser) {
       .filter(info => info && (isCambio(info) || isVentaEspecial(info)));
 
     newSpecialFolios.forEach(info => {
+      logger.info(`Special folio data -> folio: ${info.folio}, zona: "${info.zona}", terminal: "${info.terminal}", tipo: ${info.tipo}`);
       if (isCambio(info) && !notifiedCambio.has(info.folio)) {
         showCambio(messages.cambio(info));
+        logger.info(`Playing terminal audio for "${info.terminal}"`);
+        playTerminalAudio(info.terminal);
         notifiedCambio.add(info.folio);
         enviarBoleto(info.boleto, info.zona, 'Cambio', info.terminal);
       }
       if (isVentaEspecial(info) && !notifiedVentaEspecial.has(info.folio)) {
         showVentaEspecial(messages.ventaEspecial(info));
+        logger.info(`Playing terminal audio for "${info.terminal}"`);
+        playTerminalAudio(info.terminal);
         notifiedVentaEspecial.add(info.folio);
         enviarBoleto(info.boleto, info.zona, 'Venta Especial', info.terminal);
       }
